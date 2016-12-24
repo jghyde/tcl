@@ -1,0 +1,12 @@
+type: module
+name: Service Container
+description: Service Container
+package: Utility
+# core: 8.x
+php: 5.3.10
+
+# Information added by Drupal.org packaging script on 2015-06-14
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'service_container'
+datestamp: 1434275582
