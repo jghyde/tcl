@@ -1,0 +1,12 @@
+{
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "require": {
+        "drupal/console": "~1.0",
+        "drupal/twig_xdebug": "^1.0"
+    }
+}

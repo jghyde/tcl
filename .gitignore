@@ -1,0 +1,141 @@
+
+
+up vote
+0
+down vote
+favorite
+I want to add .gitignore file to my local repo. My local repo is a clone from my Drupal 8 distro from Acquia Cloud.
+
+What are best practices for my .gitignore file for Acquia Cloud hosted sites? I followed this tutorial.
+
+For example: do i have to ignore settings.php and not settings*.php? Regarding this quote from the tutorial:
+Drupal 8 You can modify .gitignore so that it ignores settings.php (not settings*.php). Then, you can update the standard settings.php with the Drupal 8 local settings file checker:
+Where is settings.local.php for, mentioned in the Quote above from the article?
+Currently my .gitignore file looks like this:
+
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore core and vendor when managing dependencies with Composer.
+# core
+# vendor
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+sites/*/files-private
+
+cache/
+files/
+
+# Ignore SimpleTest multi-site environment.
+sites/simpletest
+
+# If you prefer to store your .gitignore file in the sites/ folder, comment
+# or delete the previous settings and uncomment the following ones, instead.
+
+# Ignore configuration files that may contain sensitive information.
+# */settings*.php
+
+# Ignore paths that contain user-generated content.
+# */files
+# */private
+
+# Ignore SimpleTest multi-site environment.
+# simpletest
+
+# Ignore default text files
+/CHANGELOG.txt
+/COPYRIGHT.txt
+/INSTALL*.txt
+/LICENSE.txt
+/MAINTAINERS.txt
+/UPGRADE.txt
+/README.txt
+sites/all/README.txt
+sites/all/modules/README.txt
+sites/all/themes/README.txt
+
+# ------------------------------------------------------------------------------
+# SublimeText files
+# ------------------------------------------------------------------------------
+
+# Workspace settings.
+*.sublime-workspace
+
+# Project settings.
+*.sublime-project
+
+# ------------------------------------------------------------------------------
+# OSX
+# ------------------------------------------------------------------------------
+
+# Common OSX files.
+.AppleDouble
+.DS_Store
+.LSOverride
+
+# Thumbnails.
+._*
+
+# Files that might appear in the root of a volume.
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share.
+.apdisk
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# ------------------------------------------------------------------------------
+# Windows
+# ------------------------------------------------------------------------------
+
+# Windows image file caches.
+ehthumbs.db
+Thumbs.db
+
+# Folder config file.
+Desktop.ini
+
+# Recycle Bin used on file shares.
+$RECYCLE.BIN/
+
+# Windows Installer files.
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts.
+*.lnk
+
+# ------------------------------------------------------------------------------
+# Linux
+# ------------------------------------------------------------------------------
+
+# Tilde files.
+*~
+
+# KDE directory preferences.
+.directory
+
+# Linux trash folder which might appear on any partition or disk.
+.Trash-*
+
