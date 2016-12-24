@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Behat">
+    <behat_settings>
+      <BehatSettings />
+    </behat_settings>
+  </component>
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter home="/Applications/MAMP/bin/php/php5.6.10/bin/php" id="c44dce69-41fe-4a80-8958-030f354f6d53" name="Interpreter for Composer" debugger_id="php.debugger.XDebug" />
+    </interpreters>
+  </component>
+</project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JSLintConfiguration">
+    <option browser="true" />
+    <option debug="true" />
+    <option eqeq="true" />
+    <option indent="2" />
+    <option maxerr="50" />
+    <option plusplus="true" />
+    <option stupid="true" />
+    <option sub="true" />
+  </component>
+  <component name="JsBowerSettings">
+    <exe-path>/usr/local/bin/bower</exe-path>
+    <config-path />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings />
+    </phpunit_settings>
+  </component>
+</project>
