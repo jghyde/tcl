@@ -1,0 +1,31 @@
+services:
+  radioactivity.processor:
+    class: Drupal\radioactivity\RadioactivityProcessor
+    arguments: ["@entity_type.manager", "@state", "@entity.query", "@logger.factory", "@radioactivity.storage"]
+
+  radioactivity.storage:
+
+    class: Drupal\radioactivity\StorageFactory
+
+    default:
+        class: Drupal\radioactivity\DefaultIncidentStorage
+        factory_class: Drupal\radioactivity\StorageFactory
+        factory_method: get
+        arguments:
+            type: rest
+
+    rest_local:
+        class: Drupal\radioactivity\RestIncidentStorage
+        factory_class: Drupal\radioactivity\StorageFactory
+        factory_method: get
+        arguments:
+            type: rest
+            endpoint: local
+
+    rest_remote:
+        class: Drupal\radioactivity\RestIncidentStorage
+        factory_class: Drupal\radioactivity\StorageFactory
+        factory_method: get
+        arguments:
+            type: rest
+            endpoint: config
