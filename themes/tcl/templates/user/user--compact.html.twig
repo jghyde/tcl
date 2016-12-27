@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+  'row',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+    {% if content %}
+        <div class="user-picture col-md-4">{{ content.field_profile_image }}</div>
+        <div class="user-motherhood col-md-8">
+            <h4>{{ content.field_first_name }} {{ content.field_last_name }}</h4>
+            <p>{{ content.field_user_bio }}</p>
+            <p>Contact </p>
+            <ul class="user-social item-list">
+                {% if content.field_facebook['#items'] is not empty %}
+                <li><a href="{{ content.field_facebook }}" class="facebook" title="Follow on Facebook"><span aria-hidden="true" class="social x2 social-facebook"></span><span class="text-hide">Facebook</span></a></li>
+                {% endif %}
+                {% if content.field_twitter['#items'] is not empty %}
+                    <li><a href="{{ content.field_twitter }}" class="twitter" title="Follow on Twitter"><span aria-hidden="true" class="social x2 social-twitter"></span><span class="text-hide">Twitter</span></a></li>
+                {% endif %}
+                {% if content.field_instagram['#items'] is not empty %}
+                    <li><a href="{{ content.field_instagram }}" class="instagram" title="Follow on Instagram"><span aria-hidden="true" class="social x2 social-instagram"></span><span class="text-hide">Instagram</span></a></li>
+                {% endif %}
+                {% if content.field_linkedin['#items'] is not empty %}
+                    <li><a href="{{ content.field_linkedin }}" class="linkedin" title="Follow on LinkedIn"><span aria-hidden="true" class="social x2 social-linked-in"></span><span class="text-hide">LinkedIn</span></a></li>
+                {% endif %}
+                <li><a class="user-email" href="/user/{{ user.uid.0.value }}/contact"><span aria-hidden="true" style="font-size: 48px;vertical-align: top;" class="glyphicon glyphicon-envelope"></span><span class="text-hide">Email</span></a></li>
+
+            </ul>
+        </div>
+    {% endif %}
+</article>

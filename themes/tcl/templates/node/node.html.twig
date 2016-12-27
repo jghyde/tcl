@@ -87,16 +87,22 @@
 
   {% if display_submitted %}
     <footer>
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('author') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+    <div{{ author_attributes.addClass('author-top') }}>
+        {% trans %}By {{ author_by }} | <span itemprop="datePublished" content="{{ date_meta }}">{{ date }}</span> at {{ time }}{% endtrans %}
         {{ metadata }}
-      </div>
-    </footer>
+    </div>
+  </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('content') }}>
+  <div{{ content_attributes.addClass('content all-content') }}>
     {{ content }}
   </div>
+    {% if display_submitted %}
 
+      <footer{{ author_attributes.addClass('well') }}>
+        <h3>About the Author</h3>
+          {{ author_picture }}
+          {{ metadata }}
+      </footer>
+    {% endif %}
 </article>

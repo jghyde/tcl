@@ -5,3 +5,30 @@
  *
  * Place your custom PHP code in this file.
  */
+/**
+ * Implements template_preprocess_node()
+ */
+function tcl_preprocess_node(&$vars) {
+  $author = $vars['node']->getOwner();
+  $fname = $author->field_first_name->getString();
+  $lname = $author->field_last_name->getString();
+  $vars['author_by'] = $fname . ' ' . $lname;
+  $created = $vars['node']->created->getString();
+  $date = date('F j, Y', $created);
+  $time = date('g:i a', $created);
+  $time = str_replace('am', 'a.m.', $time);
+  $time = str_replace('pm', 'p.m.', $time);
+  $microdata = date('c', $created);
+  $meta = 'itemprop="datePublished" content="' . $microdata . '"';
+  $vars['date'] = $date;
+  $vars['time'] = $time;
+  $vars['date_meta'] = $microdata;
+  // @TODO make an author format page with latest author articles and link to it, eg user/1 is an author page.
+}
+
+/**
+ *  Implements template_preprocess_image()
+ */
+function tcl_preprocess_image(&$vars) {
+  $i = 0;
+}

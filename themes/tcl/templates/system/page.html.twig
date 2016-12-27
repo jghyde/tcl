@@ -81,7 +81,10 @@
     </header>
   {% endblock %}
 {% endif %}
-
+{# Breadcrumbs #}
+{% if page.breadcrumb %}
+  {{ page.breadcrumb }}
+{% endif %}
 {# Main #}
 {% block main %}
 <div id="main-wrapper">
@@ -120,13 +123,6 @@
                 {% if page.highlighted %}
                     {% block highlighted %}
                         <div class="highlighted">{{ page.highlighted }}</div>
-                    {% endblock %}
-                {% endif %}
-
-                {# Breadcrumbs #}
-                {% if breadcrumb %}
-                    {% block breadcrumb %}
-                        {{ breadcrumb }}
                     {% endblock %}
                 {% endif %}
 
