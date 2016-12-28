@@ -24,11 +24,21 @@ function tcl_preprocess_node(&$vars) {
   $vars['time'] = $time;
   $vars['date_meta'] = $microdata;
   // @TODO make an author format page with latest author articles and link to it, eg user/1 is an author page.
+  $type = $vars['node']->getType();
+  switch ($type) {
+    case 'song':
+        $artist_id = $vars['node']->field_artist->getString();
+        $artist = node_load($artist_id);
+        $artist_title = $artist->getTitle();
+        $vars['artist_title'] = $artist_title;
+      break;
+    default:
+      break;
+  }
 }
 
 /**
  *  Implements template_preprocess_image()
  */
 function tcl_preprocess_image(&$vars) {
-  $i = 0;
 }

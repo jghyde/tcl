@@ -146,6 +146,27 @@
                     {{ page.content }}
                 {% endblock %}
             </section>
+            {% if page.contentsmash %}
+                <section class="contentsmash">
+                    {% block contentsmash %}
+                        {{ page.contentsmash }}
+                    {% endblock %}
+                </section>
+            {% endif %}
+            {% if page.contentbottom1 %}
+            <section class="contentbottom1">
+                {% block contentbottom1 %}
+                    {{ page.contentbottom1 }}
+                {% endblock %}
+            </section>
+            {% endif %}
+            {% if page.contentsmash2 %}
+                <section class="contentsmash">
+                    {% block contentsmash2 %}
+                        {{ page.contentsmash2 }}
+                    {% endblock %}
+                </section>
+            {% endif %}
 
             {# Sidebar Second #}
             {% if page.sidebar_second %}

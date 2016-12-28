@@ -44,6 +44,9 @@ body {
     }
   }
   .navbar-collapse {
+    @media @tablet {
+      display: block;
+    }
     position: relative;
     background: #000000 url('../images/starback.jpg') top left repeat-x;
     .name.navbar-brand {
@@ -51,6 +54,9 @@ body {
     }
     .search-block-form {
       width: 400px;
+      @media @ipadmini {
+        width: 250px;
+      }
       position: absolute;
       right: 15px;
       top: 48px;
@@ -316,4 +322,55 @@ ul.menu.mm-listview a.is-active {
 
 .mm-panel a:hover {
   border: none;
+}
+@media @tablet {
+  collapse {
+    display: block;
+  }
+}
+@media @mobile {
+  .navbar-header {
+    #block-topnav {
+      position: relative;
+      top: auto;
+      right: auto;
+      background-color: #ffffff;
+      h2.visually-hidden {
+        display: block;
+        position: relative!important;
+        clip: initial;
+        height: auto;
+        width: auto;
+      }
+      ul.menu.nav {
+        list-style: none;
+        li {
+          display: block!important;
+          float: none;
+        }
+      }
+    }
+  }
+  .navbar.navbar-default {
+    .region-navigation-collapsible {
+      .logo.navbar-btn.pull-left {
+        float: none!important;
+        display: block;
+        width: 180px;
+        margin: 0 auto;
+        img {
+          width: 180px;
+          height: auto;
+        }
+      }
+      .search-block-form.block.block-search.block-search-form-block {
+        position: relative;
+        clear: both;
+        width: 300px;
+        margin: 10px auto 10px;
+        right: auto;
+        top: auto;
+      }
+    }
+  }
 }

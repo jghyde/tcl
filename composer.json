@@ -8,5 +8,14 @@
     "require": {
         "drupal/console": "~1.0",
         "drupal/twig_xdebug": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\composer_manager\\Composer\\": "modules/contrib/composer_manager/src/Composer"
+        }
+    },
+    "scripts": {
+        "drupal-rebuild": "Drupal\\composer_manager\\Composer\\Command::rebuild",
+        "drupal-update": "Drupal\\composer_manager\\Composer\\Command::update"
     }
 }
