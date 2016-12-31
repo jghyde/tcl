@@ -55,6 +55,7 @@
 @font-family-base:        @font-family-sans-serif;
 
 @font-size-base:          16px;
+
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -323,13 +324,15 @@
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max:              (@screen-sm-min - 1);
 @screen-sm-max:              (@screen-md-min - 1);
+@screen-ipadmini-max:        (@screen-ipadmini - 1);
 @screen-md-max:              (@screen-lg-min - 1);
 
-@mobile:  ~"screen and (max-width: @{screen-xs-max})";
-@ipadmini: ~"screen and (max-width: @{screen-ipadmini})";
-@tablet:  ~"screen and (min-width: @{screen-sm-min})";
-@normal:  ~"screen and (min-width: @{screen-md-min})";
-@wide:    ~"screen and (min-width: @{screen-lg-min})";
+@mobile-xs: ~"screen and (max-width: 374px)"; // < 350px
+@mobile:  ~"screen and (max-width: @{screen-xs}) and (min-width: 375px)"; // < 480px
+@ipadmini: ~"screen and (min-width: @{screen-xs}) and (max-width: @{screen-xs-max})"; // 767px and 480px
+@tablet:  ~"screen and (min-width: @{screen-xs-max}) and (max-width: @{screen-md-min})"; // 991px and 768px
+@normal:  ~"screen and (min-width: @{screen-md}) and (max-width: @{screen-md-max})"; // 1199px and 992px
+@wide:    ~"screen and (min-width: @{screen-lg-min})"; //> 1200px
 
 //== Grid system
 //

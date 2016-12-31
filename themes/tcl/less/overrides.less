@@ -67,6 +67,67 @@ p:last-child,
     margin-top: 0;
   }
 }
+// Font sizes for stepdowns
+@media @ipadmini {
+  h1 {
+    font-size: floor((@font-size-base * 2)); // ~36px
+  }
+  h2 {
+    font-size: floor((@font-size-base * 1.7)); // ~30px
+  }
+  h3 {
+    font-size: ceil((@font-size-base * 1.4)); // ~24px
+  }
+  h4 {
+    font-size: ceil((@font-size-base * 1.25)); // ~18px
+  }
+  h5 {
+    font-size: @font-size-base;
+  }
+  h6 {
+    font-size: ceil((@font-size-base * 0.85));
+  }
+}
+@media @mobile {
+  h1 {
+    font-size: floor((@font-size-base * 1.7)); // ~36px
+  }
+  h2 {
+    font-size: floor((@font-size-base * 1.4)); // ~30px
+  }
+  h3 {
+    font-size: ceil((@font-size-base * 1.25)); // ~24px
+  }
+  h4 {
+    font-size: @font-size-base;; // ~18px
+  }
+  h5 {
+    font-size: ceil((@font-size-base * 0.85));
+  }
+  h6 {
+    font-size: ceil((@font-size-base * 0.75));
+  }
+}
+@media @mobile-xs {
+  h1 {
+    font-size: floor((@font-size-base * 1.4)); // ~36px
+  }
+  h2 {
+    font-size: floor((@font-size-base * 1.25)); // ~30px
+  }
+  h3 {
+    font-size: @font-size-base;; // ~18px
+  }
+  h4 {
+    font-size: ceil((@font-size-base * 0.85));
+  }
+  h5 {
+    font-size: ceil((@font-size-base * 0.75));
+  }
+  h6 {
+    font-size: ceil((@font-size-base * 0.65));
+  }
+}
 .region-breadcrumb {
   background: #560815 url('../images/grunge-red-bg.jpg') top left repeat-x;
   width: 100%;
