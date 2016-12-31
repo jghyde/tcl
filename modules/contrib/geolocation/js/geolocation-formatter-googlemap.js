@@ -1,0 +1,130 @@
+/**
+ * @file
+ * Javascript for the Google map formatter.
+ */
+
+(function ($, Drupal) {
+
+  'use strict';
+
+  /**
+   * @namespace
+   */
+  Drupal.geolocation = Drupal.geolocation || {};
+
+  /**
+   * Attach google map formatter functionality.
+   *
+   * @type {Drupal~behavior}
+   *
+   * @prop {Drupal~behaviorAttach} attach
+   *   Attaches google map formatter functionality to relevant elements.
+   */
+  Drupal.behaviors.geolocationGoogleMaps = {
+    attach: function (context, drupalSettings) {
+      if (typeof Drupal.geolocation.loadGoogle === 'function') {
+        // First load the library from google.
+        Drupal.geolocation.loadGoogle(function () {
+          initialize(drupalSettings.geolocation.maps, context);
+        });
+      }
+    }
+  };
+
+  /**
+   * Runs after the google maps api is available
+   *
+   * @param {GeolocationMap[]} mapSettings - The geolocation map objects.
+   * @param {object} context - The html context.
+   */
+  function initialize(mapSettings, context) {
+
+    /* global google */
+
+    $.each(
+      mapSettings,
+
+      /**
+       * @param {string} mapId - Current map ID
+       * @param {GeolocationMap} map - Single map settings Object
+       */
+      function (mapId, map) {
+        // Get the map container.
+        /** @type {jQuery} */
+        var mapWrapper = $('#' + mapId, context).first();
+
+        if (
+          mapWrapper.length
+          && !mapWrapper.hasClass('geolocation-processed')
+        ) {
+          if (
+            mapWrapper.data('map-lat')
+            && mapWrapper.data('map-lng')
+          ) {
+            map.lat = Number(mapWrapper.data('map-lat'));
+            map.lng = Number(mapWrapper.data('map-lng'));
+          }
+          else {
+            map.lat = 0;
+            map.lng = 0;
+          }
+
+          map.container = mapWrapper.children('.geolocation-google-map');
+
+          // Add the map by ID with settings.
+          map.googleMap = Drupal.geolocation.addMap(map);
+
+          if (mapWrapper.find('.geolocation-common-map-locations .geolocation').length) {
+
+            /**
+             * Result handling.
+             */
+              // A google maps API tool to re-center the map on its content.
+            var bounds = new google.maps.LatLngBounds();
+
+            Drupal.geolocation.removeMapMarker(map);
+
+            /*
+             * Add the locations to the map.
+             */
+            mapWrapper.find('.geolocation-common-map-locations .geolocation').each(function (index, location) {
+              location = $(location);
+              var position = new google.maps.LatLng(Number(location.data('lat')), Number(location.data('lng')));
+
+              bounds.extend(position);
+
+              /**
+               * @type {GoogleMarkerSettings}
+               */
+              var markerConfig = {
+                position: position,
+                map: map.googleMap,
+                title: location.children('h2').text(),
+                infoWindowContent: location.html(),
+                infoWindowSolitary: true
+              };
+
+              var marker = Drupal.geolocation.setMapMarker(map, markerConfig);
+
+              map.mapMarkers.push(marker);
+            });
+
+            map.googleMap.fitBounds(bounds);
+
+            if (map.settings.google_map_settings.zoom) {
+              var zoomSetting = parseInt(map.settings.google_map_settings.zoom);
+              google.maps.event.addListenerOnce(map.googleMap, 'zoom_changed', function () {
+                if (zoomSetting < map.googleMap.getZoom()) {
+                  map.googleMap.setZoom(zoomSetting);
+                }
+              });
+            }
+          }
+
+          // Set the already processed flag.
+          map.container.addClass('geolocation-processed');
+        }
+      }
+    );
+  }
+})(jQuery, Drupal);

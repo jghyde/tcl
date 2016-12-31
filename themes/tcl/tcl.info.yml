@@ -26,3 +26,4 @@ regions:
 libraries:
   - 'tcl/global-styling'
   - 'tcl/bootstrap-scripts'
+  - 'tcl/iosslider'

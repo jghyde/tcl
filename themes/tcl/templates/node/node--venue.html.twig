@@ -95,7 +95,7 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content all-content') }}>
-      {{ content|without('field_map', 'field_email', 'field_facebook', 'field_twitter', 'field_website', 'field_youtube', 'field_instagram') }}
+      {{ content|without('field_email', 'field_facebook', 'field_twitter', 'field_website', 'field_youtube', 'field_instagram') }}
       {% if page %}
         <h4>Follow {{ label }}</h4>
         <ul class="user-social item-list">
@@ -116,7 +116,6 @@
             {% endif %}
         </ul>
       {% endif %}
-      {{ content.field_map }}
   </div>
 
     {% if display_submitted %}

@@ -7895,6 +7895,90 @@ article.article.full {
 .page-node-type-song .field--name-field-artist article.teaser h4 {
   margin-top: 0;
 }
+.page-node-type-venue .field {
+  margin-bottom: 1.5em;
+}
+.page-node-type-event .field--name-field-artist,
+.page-node-type-event .field--name-field-address {
+  margin-bottom: 1.5em;
+}
+/* slider container */
+.paragraph--type--slider {
+  position: relative;
+  /* slider */
+  /* slide */
+}
+.paragraph--type--slider .iosslider {
+  /* required */
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+@media screen and (min-width: 1200px) {
+  .paragraph--type--slider .iosslider {
+    width: 850px;
+    height: 536px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .paragraph--type--slider .iosslider {
+    width: 100%;
+    height: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .paragraph--type--slider .iosslider {
+    width: 100%;
+    height: 380px;
+  }
+}
+.paragraph--type--slider #prev,
+.paragraph--type--slider #next {
+  position: absolute;
+  top: 42%;
+  color: #ffffff;
+  font-size: 45px;
+  z-index: 5;
+  opacity: 0.6;
+}
+.paragraph--type--slider #prev {
+  left: 15px;
+}
+.paragraph--type--slider #next {
+  right: 15px;
+}
+.paragraph--type--slider #prev:hover,
+.paragraph--type--slider #next:hover {
+  opacity: 1.0;
+}
+.paragraph--type--slider .iosslider .slider {
+  /* required */
+  width: 100%;
+  height: 100%;
+}
+.paragraph--type--slider .iosslider .slider .slide {
+  /* required */
+  float: left;
+}
+@media screen and (min-width: 1200px) {
+  .paragraph--type--slider .iosslider .slider .slide {
+    width: 850px;
+    height: 536px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .paragraph--type--slider .iosslider .slider .slide {
+    width: 100%;
+    height: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .paragraph--type--slider .iosslider .slider .slide {
+    width: 100%;
+    height: 380px;
+  }
+}
 /**
  * Panel styling.
  */
@@ -8230,4 +8314,9 @@ p:last-child,
 }
 .region-breadcrumb {
   margin-bottom: 1.5em;
+}
+.gm-style-iw h2.location-title {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }

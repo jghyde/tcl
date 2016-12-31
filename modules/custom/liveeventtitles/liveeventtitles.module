@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * Modify the node create/edit form and automatically generate a node title for event nodes.
+ */
+define('LIVEEVENTTITLES_PLACEHOLDER', '%LiveEventTitle%');
+/**
+ * Implements hook_form_alter().
+ */
+function liveeventtitles_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'node_event_form' || $form_id == 'node_event_edit_form') {
+    $title_widget = &$form['title']['widget'][0];
+    $default = (!empty($title_widget['value']['#default_value'])? $title_widget['value']['#default_value'] : LIVEEVENTTITLES_PLACEHOLDER);
+    $title_widget['value']['#default_value'] = $default;
+    $title_widget['value']['#type'] = 'value';
+    $title_widget['value']['#required'] = FALSE;
+    $form['title']['#access'] = FALSE;
+  }
+}
+/**
+ * Implements hook_node_presave
+ */
+function liveeventtitles_node_presave(Drupal\node\Entity\Node $node) {
+  $type = $node->getType();
+  if ($type == 'event') {
+    // Load the artist node to get the title
+    if ($artist_id = $node->field_artist->getString()) {
+      $artist = \Drupal\node\Entity\Node::load($artist_id);
+      $artist_name = $artist->title->getString();
+    }
+    // Load the Venue to get the title
+    if ($venue_id = $node->field_venue->getString()) {
+      $venue = \Drupal\node\Entity\Node::load($venue_id);
+      $venue_name = $venue->title->getString();
+    }
+    if (!empty($venue_name) && !empty($artist_name)) {
+      $node->setTitle($artist_name . ' at ' . $venue_name);
+    }
+  }
+}
