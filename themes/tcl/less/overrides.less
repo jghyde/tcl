@@ -110,22 +110,22 @@ p:last-child,
 }
 @media @mobile-xs {
   h1 {
-    font-size: floor((@font-size-base * 1.4)); // ~36px
+    font-size: floor((@font-size-base * 1.2)); // ~36px
   }
   h2 {
-    font-size: floor((@font-size-base * 1.25)); // ~30px
+    font-size: floor @font-size-base; // ~30px
   }
   h3 {
-    font-size: @font-size-base;; // ~18px
+    font-size: ceil((@font-size-base * 0.75)); // ~18px
   }
   h4 {
-    font-size: ceil((@font-size-base * 0.85));
+    font-size: ceil((@font-size-base * 0.65));
   }
   h5 {
-    font-size: ceil((@font-size-base * 0.75));
+    font-size: ceil((@font-size-base * 0.55));
   }
   h6 {
-    font-size: ceil((@font-size-base * 0.65));
+    font-size: ceil((@font-size-base * 0.50));
   }
 }
 .region-breadcrumb {

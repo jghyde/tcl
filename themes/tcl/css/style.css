@@ -7759,26 +7759,47 @@ ul.menu.mm-listview a.is-active {
     display: block;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 375px) {
+@media screen and (max-width: 767px) {
   .navbar-header #block-topnav {
     position: relative;
+    z-index: 3;
     top: auto;
     right: auto;
     background-color: #ffffff;
   }
   .navbar-header #block-topnav h2.visually-hidden {
     display: block;
+    line-height: 45px;
+    text-align: right;
     position: relative!important;
     clip: initial;
     height: auto;
     width: auto;
+    font-size: small;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+  }
+  .navbar-header #block-topnav h2.visually-hidden:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\e259";
+    -moz-osx-font-smoothing: grayscale;
+    padding-left: 10px;
   }
   .navbar-header #block-topnav ul.menu.nav {
+    display: none;
     list-style: none;
   }
   .navbar-header #block-topnav ul.menu.nav li {
     display: block!important;
     float: none;
+    border: 1px solid #cccccc;
   }
   .navbar.navbar-default .region-navigation-collapsible .logo.navbar-btn.pull-left {
     float: none!important;
@@ -7797,6 +7818,11 @@ ul.menu.mm-listview a.is-active {
     margin: 10px auto 10px;
     right: auto;
     top: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-header #block-topnav ul.menu.nav {
+    display: block;
   }
 }
 /**
@@ -8406,22 +8432,22 @@ p:last-child,
 }
 @media screen and (max-width: 374px) {
   h1 {
-    font-size: 22px;
+    font-size: 19px;
   }
   h2 {
-    font-size: 20px;
+    font-size: floor 16px;
   }
   h3 {
-    font-size: 16px;
-  }
-  h4 {
-    font-size: 14px;
-  }
-  h5 {
     font-size: 12px;
   }
-  h6 {
+  h4 {
     font-size: 11px;
+  }
+  h5 {
+    font-size: 9px;
+  }
+  h6 {
+    font-size: 8px;
   }
 }
 .region-breadcrumb {
