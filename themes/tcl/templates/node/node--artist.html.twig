@@ -117,7 +117,7 @@
         </ul>
       {% endif %}
   </div>
-
+    {% if not page %}
     {% if display_submitted %}
 
       <footer{{ author_attributes.addClass('well') }}>
@@ -125,5 +125,6 @@
           {{ author_picture }}
           {{ metadata }}
       </footer>
+    {% endif %}
     {% endif %}
 </article>

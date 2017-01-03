@@ -17,4 +17,6 @@
   theme.settings.image_responsive ? 'img-responsive',
 ] %}
 <img{{ attributes.addClass(classes) }} />
+{% if alt is not empty %}
 <figcaption><strong>Above:</strong> {{ alt }}</figcaption>
+{%  endif %}

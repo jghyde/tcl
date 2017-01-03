@@ -76,15 +76,7 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
+    {%  if page  %}
   {% if display_submitted %}
     <footer>
     <div{{ author_attributes.addClass('author-top') }}>
@@ -131,5 +123,10 @@
           {{ author_picture }}
           {{ metadata }}
       </footer>
+    {% endif %}
+    {%  else %}
+    {{ content.field_video }}
+    <h3 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+    <p>By {{ content.field_artist }}</p>
     {% endif %}
 </article>

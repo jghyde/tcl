@@ -14,7 +14,12 @@ function tcl_preprocess_node(&$vars) {
   $lname = $author->field_last_name->getString();
   $vars['author_by'] = $fname . ' ' . $lname;
   $created = $vars['node']->created->getString();
-  $date = date('F j, Y', $created);
+  // Configure patterns for view modes
+  $date_pattern = 'F j, Y';
+  if ($vars['view_mode'] == 'mini_teaser') {
+    $date_pattern = 'M j, Y';
+  }
+  $date = date($date_pattern, $created);
   $time = date('g:i a', $created);
   $time = str_replace('am', 'a.m.', $time);
   $time = str_replace('pm', 'p.m.', $time);

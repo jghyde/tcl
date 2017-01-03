@@ -7178,6 +7178,23 @@ button.close {
   -webkit-animation-name: tada;
   animation-name: tada;
 }
+.block-views-blocksongs-block-block-1 article .field--name-field-article-image,
+.block-views-blocklater-articles-block-1 article .field--name-field-article-image {
+  margin-bottom: 0.5em;
+}
+.block-views-blocksongs-block-block-1 article .field--name-field-article-image figcaption,
+.block-views-blocklater-articles-block-1 article .field--name-field-article-image figcaption {
+  display: none;
+}
+.block-views-blocksongs-block-block-1 article h3.title,
+.block-views-blocklater-articles-block-1 article h3.title {
+  font-size: 1em;
+  margin: 0 0 0.5em;
+}
+.block-views-blocksongs-block-block-1 article footer,
+.block-views-blocklater-articles-block-1 article footer {
+  font-size: 0.7em;
+}
 /**
  * Alert styling.
  */
@@ -7824,6 +7841,12 @@ ul.menu.mm-listview a.is-active {
   .navbar-header #block-topnav ul.menu.nav {
     display: block;
   }
+}
+.path-frontpage .navbar.navbar-default {
+  margin-bottom: 1.5em;
+}
+.path-frontpage h1.page-header {
+  display: none !important;
 }
 /**
  * Node styling.
