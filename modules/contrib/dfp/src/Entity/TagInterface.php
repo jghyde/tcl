@@ -46,6 +46,14 @@ interface TagInterface extends ConfigEntityInterface {
   public function adunit();
 
   /**
+   * Gets Ezoic opening DIV.
+   *
+   * @return string
+   *   The Ezoic opening div.
+   */
+  public function ezoic();
+
+  /**
    * Gets the slug.
    *
    * @return string

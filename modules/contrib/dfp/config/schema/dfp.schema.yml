@@ -63,6 +63,9 @@ dfp.tag.*:
     adunit:
       type: string
       label: 'Ad unit'
+    ezoic:
+      type: string
+      Label: 'Ezoic DIV Wrapper'
     slug:
       type: string
       label: 'Slug'

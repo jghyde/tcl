@@ -79,6 +79,14 @@ class Tag extends EntityForm {
       '#default_value' => $tag->adunit(),
       '#description' => $this->t('Use the tokens below to define how the ad unit should display. The network id will be included automatically. Example: [dfp_tag:url_parts:4]/[dfp_tag:slot]. Leave this field empty to use the default ad unit adunit as defined in <a href=":url">Global DFP Settings</a>.', [':url' => Url::fromRoute('dfp.admin_settings')->toString()]),
     ];
+    $form['tag_settings']['ezoic'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Ezoic Tag Wrapper DIV'),
+      '#description' => $this->t('Example: the entire opening DIV tag for the Ezoic wrapper'),
+      '#required' => FALSE,
+      '#default_value' => $tag->ezoic(),
+      '#maxlength' => 255,
+    ];
     // @todo Add token browser.
 
     // Global Display settings.

@@ -102,6 +102,15 @@ class Tag extends ConfigEntityBase implements TagInterface {
   protected $adunit;
 
   /**
+   * For clients using Ezoic.com's ad optimization.
+   *
+   * Ezoic opening div example: <div id="ezoic-top-wide">
+   * No closing </div> is allowed
+   *
+   * @var string
+   */
+  protected $ezoic;
+  /**
    * Slug.
    *
    * Override the default slug for this ad tag. Use <none> for no slug. Leave
@@ -167,6 +176,12 @@ class Tag extends ConfigEntityBase implements TagInterface {
    */
   public function adunit() {
     return $this->adunit;
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function ezoic() {
+    return $this->ezoic;
   }
 
   /**
